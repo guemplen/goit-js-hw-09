@@ -20,9 +20,8 @@ startButton.addEventListener('click', () => {
   //console.log('start');
   if (!intervalId) {
     intervalId = setInterval(changeColor, 1000);
-    startButton.disable = true;
-    stopButton.disable = false;
-    //console.log(startButton.disable);
+    startButton.setAttribute('disabled', 'disabled');
+    stopButton.removeAttribute('disabled');
   }
 });
 
@@ -30,9 +29,8 @@ stopButton.addEventListener('click', () => {
   //console.log('stop');
   clearInterval(intervalId);
   intervalId = null;
-  startButton.disable = false;
-  stopButton.disable = true;
-  //console.log(stopButton.disable);
+  startButton.removeAttribute('disabled');
+  stopButton.setAttribute('disabled', 'disabled');
 });
 
 function changeColor() {
